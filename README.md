@@ -4,7 +4,7 @@ First semester worth of laboratory practices on algorithms and data structures.
 All tasks tested in **PCMS2** 
 
 # [Lab 1](http://neerc.ifmo.ru/teaching/disalgo/problems/problems1.pdf)
-1. [Actual tasks](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/tree/master/Algorithms%20and%20Data%20Structures/lab1)
+1. [Actual tasks(Work in progress)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/tree/master/Algorithms%20and%20Data%20Structures/lab1)
 
 # [Lab 2](http://neerc.ifmo.ru/teaching/disalgo/problems/problems2.pdf)
 1. [Сортировка(Sorting)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab2/task1/main.cpp)
@@ -26,3 +26,9 @@ All tasks tested in **PCMS2**
 3. [Правильная скобочная последовательность(Balanced brackes sequence)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab4/Task%203/main.cpp)
 4. [Постфиксная запись(Reverse Polish Notation Calculation)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab4/Task%204/main.cpp)
 5. [Приоритетная очередь(Priority Queue)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab4/Task%205/main.cpp)
+
+## [Lab 5](http://neerc.ifmo.ru/teaching/disalgo/problems/problems5.pdf)
+1. [Set](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%201/main.cpp)
+2. [Map](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%202/main.cpp)
+3. [LinkedMap](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%203/main.cpp)
+4. [MultiMap](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%204/main.cpp)
