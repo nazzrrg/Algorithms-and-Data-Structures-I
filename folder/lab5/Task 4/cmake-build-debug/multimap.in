@@ -1,8 +1,0 @@
-put a a
-put a b
-put a c
-get a
-delete a b
-get a
-deleteall a
-get a
