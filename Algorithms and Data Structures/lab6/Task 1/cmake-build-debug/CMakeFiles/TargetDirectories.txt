@@ -1,0 +1,3 @@
+/Users/nazzrrg/Git/Algorithms-and-Data-Structures-I/Algorithms and Data Structures/lab6/Task 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nazzrrg/Git/Algorithms-and-Data-Structures-I/Algorithms and Data Structures/lab6/Task 1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nazzrrg/Git/Algorithms-and-Data-Structures-I/Algorithms and Data Structures/lab6/Task 1/cmake-build-debug/CMakeFiles/Task_1.dir
