@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -11,32 +12,6 @@ private:
         Node* right = nullptr;
     };
     Node* root;
-public:
-    void insert(long long key) {
-        auto z = new Node;
-        z->key = key;
-        Node* ptr = root;
-
-        while (ptr != nullptr) {
-            if (z->key > ptr->key) {
-                if (ptr->right != nullptr) {
-                    ptr = ptr->right;
-                } else {
-                    z->parent = ptr;
-                    ptr->right = z;
-                    break;
-                }
-            } else if (z->key < ptr->key) {
-                if (ptr->left != nullptr) {
-                    ptr = ptr->left;
-                } else {
-                    z->parent = ptr;
-                    ptr->left = z;
-                    break;
-                }
-            }
-        }
-    }
 
     Node* find(long long key) {
         Node* ptr = root;
@@ -75,6 +50,32 @@ public:
             }
         }
         return successor;
+    }
+public:
+    void insert(long long key) {
+        auto z = new Node;
+        z->key = key;
+        Node* ptr = root;
+
+        while (ptr != nullptr) {
+            if (z->key > ptr->key) {
+                if (ptr->right != nullptr) {
+                    ptr = ptr->right;
+                } else {
+                    z->parent = ptr;
+                    ptr->right = z;
+                    break;
+                }
+            } else if (z->key < ptr->key) {
+                if (ptr->left != nullptr) {
+                    ptr = ptr->left;
+                } else {
+                    z->parent = ptr;
+                    ptr->left = z;
+                    break;
+                }
+            }
+        }
     }
 
     void remove(long long key) {
@@ -124,16 +125,51 @@ public:
                 successor->right->parent = successor->parent;
             }
         }
-
         delete successor;
     }
 };
+
+struct array_node{
+    long long val;
+    int right;
+    int left;
+};
+
+long long cnt(struct array_node* arr, int t) {
+    if (arr[t].left == 0 && arr[t].right == 0) {
+        return 1;
+    }
+
+    return 1 + max(cnt(arr, arr[t].left), cnt(arr, arr[t].right));
+}
 
 int main() {
     freopen("height.in", "r", stdin);
     freopen("height.out", "w", stdout);
 
+    int n;
+    cin >> n;
 
+    struct array_node array[n + 1];
+
+    array[0].val = 0;
+    array[0].left = 0;
+    array[0].right = 0;
+
+    for (int i = 1; i <= n; ++i) {
+        int v,l,r;
+        cin >> v >> l >> r;
+        array[i].val = v;
+        array[i].left = l;
+        array[i].right = r;
+    }
+
+    long long height = 0;
+    for (int i = 0; i < n; i++) {
+        long long tmp = cnt(array, i);
+        if (tmp > height) height = tmp;
+    }
+    cout << height;
 
     return 0;
 }
