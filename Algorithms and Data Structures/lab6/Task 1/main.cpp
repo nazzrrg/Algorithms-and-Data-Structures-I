@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -129,47 +130,41 @@ public:
     }
 };
 
-struct array_node{
-    long long val;
-    int right;
-    int left;
-};
-
-long long cnt(struct array_node* arr, int t) {
-    if (arr[t].left == 0 && arr[t].right == 0) {
-        return 1;
+int dfs(vector<vector<int>>& v, int i) {
+    int maxn = 0;
+    if (i < 0) {
+        return 0;
     }
-
-    return 1 + max(cnt(arr, arr[t].left), cnt(arr, arr[t].right));
+    for (auto it : v[i]) {
+        maxn = max(dfs(v, it), maxn);
+    }
+    return maxn + 1;
 }
 
 int main() {
     freopen("height.in", "r", stdin);
     freopen("height.out", "w", stdout);
 
+    vector<vector<int>> v;
+
     int n;
     cin >> n;
 
-    struct array_node array[n + 1];
+    if (n == 0) {
+        cout << 0;
+        return 0;
+    }
+    v.resize(n);
 
-    array[0].val = 0;
-    array[0].left = 0;
-    array[0].right = 0;
+    for (int i = 0; i < n; ++i) {
+        int t,l,r;
+        cin >> t >> l >> r;
 
-    for (int i = 1; i <= n; ++i) {
-        int v,l,r;
-        cin >> v >> l >> r;
-        array[i].val = v;
-        array[i].left = l;
-        array[i].right = r;
+        v[i].push_back(l-1);
+        v[i].push_back(r-1);
     }
 
-    long long height = 0;
-    for (int i = 0; i < n; i++) {
-        long long tmp = cnt(array, i);
-        if (tmp > height) height = tmp;
-    }
-    cout << height;
+    cout << dfs(v, 0);
 
     return 0;
 }
