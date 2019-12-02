@@ -19,32 +19,6 @@ public:
         root = nullptr;
     }
 
-/*    Node* find(long long key) {
-        Node* ptr = root;
-
-        while (ptr != nullptr) {
-            if (key == ptr->key) {
-                return ptr;
-            }
-
-            if (key > ptr->key) {
-                if (ptr->right != nullptr) {
-                    ptr = ptr->right;
-                } else {
-                    return nullptr;
-                }
-            } else {
-                if (ptr->left != nullptr) {
-                    ptr = ptr->left;
-                } else {
-                    return nullptr;
-                }
-            }
-        }
-
-        return nullptr;
-    }*/
-
     Node* search(Node* ptr, const long long& key) {
         if (ptr == nullptr || ptr->key == key) {
             return ptr;
@@ -59,8 +33,6 @@ public:
     Node* find(const long long& key) {
         return search(root, key);
     }
-
-
 
     Node* next(long long key) {
         Node* current = root;
@@ -82,7 +54,7 @@ public:
         Node* predecessor = nullptr;
 
         while (current != nullptr) {
-            if (current->key > key) {
+            if (current->key >= key) {
                 current = current->left;
             } else {
                 predecessor = current;
