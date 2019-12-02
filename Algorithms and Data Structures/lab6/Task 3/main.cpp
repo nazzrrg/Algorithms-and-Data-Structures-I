@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
+//#include <cmath>
+//#include <vector>
 #include <string>
 
 using namespace std;
@@ -14,6 +14,10 @@ public:
         Node* right = nullptr;
     };
     Node* root;
+
+    BinarySearchTree () {
+        root = nullptr;
+    }
 
     Node* find(long long key) {
         Node* ptr = root;
@@ -39,6 +43,23 @@ public:
         return nullptr;
     }
 
+//    Node* search(Node* ptr, const long long& key) {
+//        if (ptr == nullptr || ptr->key == key) {
+//            return ptr;
+//        }
+//        if (key < ptr->key) {
+//            return search(ptr->left, key);
+//        } else {
+//            return search(ptr->right, key);
+//        }
+//    }
+//
+//    Node* find(const long long& key) {
+//        return search(root, key);
+//    }
+
+
+
     Node* next(long long key) {
         Node* current = root;
         Node* successor = nullptr;
@@ -54,15 +75,26 @@ public:
         return successor;
     }
 
+    Node* prev(long long key) {
+        Node* current = root;
+        Node* predecessor = nullptr;
+
+        while (current != nullptr) {
+            if (current->key > key) {
+                current = current->left;
+            } else {
+                predecessor = current;
+                current = current->right;
+            }
+        }
+
+        return predecessor;
+    }
+
     void insert(long long key) {
         auto z = new Node;
         z->key = key;
         Node* ptr = root;
-
-        if (root == nullptr) {
-            root = z;
-            return;
-        }
 
         while (ptr != nullptr) {
             if (z->key > ptr->key) {
@@ -83,10 +115,34 @@ public:
                 }
             }
         }
-    }
+
+        root = z;
+   }
 
     void remove(long long key) {
         Node* ptr = find(key);
+
+        if (ptr == nullptr) {
+            return;
+        }
+
+        if (ptr == root) {
+            if (ptr->left == nullptr && ptr->right == nullptr) {
+                root = nullptr;
+                return;
+            }
+
+            if (ptr->left == nullptr || ptr->right == nullptr) {
+                if (ptr->left == nullptr) {
+                    root = ptr->right;
+                } else {
+                    root = ptr->left;
+                }
+                return;
+            }
+
+        }
+
 
         if (ptr->left == nullptr && ptr->right == nullptr) {
             if (ptr->parent->left == ptr) {
@@ -147,39 +203,68 @@ int main () {
 
     while (cin >> s >> val) {
         if (s == "insert") {
+//            cout << "ins";
             tree.insert(val);
+//            cout << " success" << endl;
         }
         if (s == "delete") {
+//            cout << "rem";
             tree.remove(val);
+//            cout << " success" << endl;
         }
         if (s == "exists") {
             auto result = tree.find(val);
+//            cout << "ex";
             if (result == nullptr) {
                 cout << "false";
             } else {
                 cout << "true";
             }
+//            cout << " success ";
             cout << '\n';
         }
         if (s == "next") {
+//            cout << "next";
             auto result = tree.next(val);
             if (result == nullptr) {
                 cout << "none";
             } else {
                 cout << result->key;
             }
+//            cout << " success ";
             cout << '\n';
         }
         if (s == "prev") {
+//            cout << "prev";
             auto result = tree.prev(val);
             if (result == nullptr) {
                 cout << "none";
             } else {
                 cout << result->key;
             }
+//            cout << " success ";
             cout << '\n';
         }
     }
 
     return 0;
 }
+/*
+insert -3
+insert 7
+insert 2
+delete -5
+delete -3
+next -6
+
+insert 2
+insert 5
+insert 3
+exists 2
+exists 4
+next 4
+prev 4
+delete 5
+next 4
+prev 4
+ */
