@@ -1,5 +1,7 @@
 # How to use
 
+Author: [Vadillap](https://github.com/vadillap)
+
 ## 1. Compile your code into a binary execution file.
 
 ## 2. Copy the file into the folder with the script.(or put the full path in the variable in step 3).
