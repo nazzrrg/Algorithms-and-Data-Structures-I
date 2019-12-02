@@ -19,44 +19,46 @@ public:
         root = nullptr;
     }
 
-    Node* find(long long key) {
+/*    Node* find(long long key) {
         Node* ptr = root;
 
         while (ptr != nullptr) {
+            if (key == ptr->key) {
+                return ptr;
+            }
+
             if (key > ptr->key) {
                 if (ptr->right != nullptr) {
                     ptr = ptr->right;
                 } else {
                     return nullptr;
                 }
-            } else if (key < ptr->key) {
+            } else {
                 if (ptr->left != nullptr) {
                     ptr = ptr->left;
                 } else {
                     return nullptr;
                 }
-            } else if (key == ptr->key){
-                return ptr;
             }
         }
 
         return nullptr;
+    }*/
+
+    Node* search(Node* ptr, const long long& key) {
+        if (ptr == nullptr || ptr->key == key) {
+            return ptr;
+        }
+        if (key < ptr->key) {
+            return search(ptr->left, key);
+        } else {
+            return search(ptr->right, key);
+        }
     }
 
-//    Node* search(Node* ptr, const long long& key) {
-//        if (ptr == nullptr || ptr->key == key) {
-//            return ptr;
-//        }
-//        if (key < ptr->key) {
-//            return search(ptr->left, key);
-//        } else {
-//            return search(ptr->right, key);
-//        }
-//    }
-//
-//    Node* find(const long long& key) {
-//        return search(root, key);
-//    }
+    Node* find(const long long& key) {
+        return search(root, key);
+    }
 
 
 
@@ -97,7 +99,10 @@ public:
         Node* ptr = root;
 
         while (ptr != nullptr) {
-            if (z->key > ptr->key) {
+            if (key == ptr->key) {
+                return;
+            }
+            if (key > ptr->key) {
                 if (ptr->right != nullptr) {
                     ptr = ptr->right;
                 } else {
@@ -105,7 +110,7 @@ public:
                     ptr->right = z;
                     return;
                 }
-            } else if (z->key < ptr->key) {
+            } else if (key < ptr->key) {
                 if (ptr->left != nullptr) {
                     ptr = ptr->left;
                 } else {
@@ -129,6 +134,7 @@ public:
         if (ptr == root) {
             if (ptr->left == nullptr && ptr->right == nullptr) {
                 root = nullptr;
+                delete ptr;
                 return;
             }
 
@@ -138,11 +144,10 @@ public:
                 } else {
                     root = ptr->left;
                 }
+                delete ptr;
                 return;
             }
-
         }
-
 
         if (ptr->left == nullptr && ptr->right == nullptr) {
             if (ptr->parent->left == ptr) {
@@ -203,46 +208,36 @@ int main () {
 
     while (cin >> s >> val) {
         if (s == "insert") {
-//            cout << "ins";
             tree.insert(val);
-//            cout << " success" << endl;
         }
         if (s == "delete") {
-//            cout << "rem";
             tree.remove(val);
-//            cout << " success" << endl;
         }
         if (s == "exists") {
             auto result = tree.find(val);
-//            cout << "ex";
             if (result == nullptr) {
                 cout << "false";
             } else {
                 cout << "true";
             }
-//            cout << " success ";
             cout << '\n';
         }
         if (s == "next") {
-//            cout << "next";
             auto result = tree.next(val);
             if (result == nullptr) {
                 cout << "none";
             } else {
                 cout << result->key;
             }
-//            cout << " success ";
             cout << '\n';
         }
         if (s == "prev") {
-//            cout << "prev";
             auto result = tree.prev(val);
             if (result == nullptr) {
                 cout << "none";
             } else {
                 cout << result->key;
             }
-//            cout << " success ";
             cout << '\n';
         }
     }
