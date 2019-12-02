@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-class BinaryTree {
-private:
-    struct Node {
+class BinarySearchTree {
+public:
+    typedef struct Node {
         long long key = 0;
         Node* parent = nullptr;
         Node* left = nullptr;
@@ -52,11 +53,16 @@ private:
         }
         return successor;
     }
-public:
+
     void insert(long long key) {
         auto z = new Node;
         z->key = key;
         Node* ptr = root;
+
+        if (root == nullptr) {
+            root = z;
+            return;
+        }
 
         while (ptr != nullptr) {
             if (z->key > ptr->key) {
@@ -65,7 +71,7 @@ public:
                 } else {
                     z->parent = ptr;
                     ptr->right = z;
-                    break;
+                    return;
                 }
             } else if (z->key < ptr->key) {
                 if (ptr->left != nullptr) {
@@ -73,7 +79,7 @@ public:
                 } else {
                     z->parent = ptr;
                     ptr->left = z;
-                    break;
+                    return;
                 }
             }
         }
@@ -133,6 +139,47 @@ public:
 int main () {
     freopen("bstsimple.in", "r", stdin);
     freopen("bstsimple.out", "w", stdout);
+
+    string s;
+    int val;
+
+    BinarySearchTree tree{};
+
+    while (cin >> s >> val) {
+        if (s == "insert") {
+            tree.insert(val);
+        }
+        if (s == "delete") {
+            tree.remove(val);
+        }
+        if (s == "exists") {
+            auto result = tree.find(val);
+            if (result == nullptr) {
+                cout << "false";
+            } else {
+                cout << "true";
+            }
+            cout << '\n';
+        }
+        if (s == "next") {
+            auto result = tree.next(val);
+            if (result == nullptr) {
+                cout << "none";
+            } else {
+                cout << result->key;
+            }
+            cout << '\n';
+        }
+        if (s == "prev") {
+            auto result = tree.prev(val);
+            if (result == nullptr) {
+                cout << "none";
+            } else {
+                cout << result->key;
+            }
+            cout << '\n';
+        }
+    }
 
     return 0;
 }
