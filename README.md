@@ -33,3 +33,9 @@ All tasks tested in **PCMS2**
 2. [Map](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%202/main.cpp)
 3. [LinkedMap](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%203/main.cpp)
 4. [MultiMap](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab5/Task%204/main.cpp)
+
+## [Lab 6](http://neerc.ifmo.ru/teaching/disalgo/problems/problems6.pdf)
+1. [Высота дерева(Binary tree height)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab6/Task%201/main.cpp)
+2. [Проверка корректности(Correctness check)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab6/Task%202/main.cpp)
+3. Простое ДДП(Simple BST) - Work in progress
+4. Интерпретатор Quack(Quack language interpreter) - work in progress
