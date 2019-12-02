@@ -40,4 +40,4 @@ All tasks tested in **PCMS2**
 3. [Простое БДП(Simple BST)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab6/Task%203/main.cpp)
 
     [BONUS: Стресс тестер для данной задачи](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/tree/master/Algorithms%20and%20Data%20Structures/lab6/Task%203/Stress%20tester(courtesy%20of%20Vadillap))
-4. Интерпретатор Quack(Quack language interpreter) - work in progress
+4. [Интерпретатор Quack(Quack language interpreter)](https://github.com/nazzrrg/Algorithms-and-Data-Structures-I/blob/master/Algorithms%20and%20Data%20Structures/lab6/Task%204/main.cpp)
